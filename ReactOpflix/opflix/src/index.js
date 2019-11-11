@@ -4,6 +4,8 @@ import {createStackNavigator} from 'react-navigation-stack';
 
 import MainScreen from './Pages/home';
 import SignInScreen from './Pages/login';
+import filtrarScreen from './Pages/filtrar';
+import cadastrarScreen from './Pages/Cadastrar';
 
 const AuthStack = createStackNavigator({
   Sign: {screen: SignInScreen},
@@ -15,20 +17,24 @@ const MainNavigator = createBottomTabNavigator(
       screen: MainScreen,
     },
     Profile: {
-      screen: SignInScreen,
+      screen: filtrarScreen,
     },
   },
   {
     initialRouteName: 'Main',
     tabBarOptions: {
-      showLabel: false,
+      showLabel: true,
+      style:{
+        backgroundColor: '#000000'
+      },
       showIcon: true,
-      activeBackgroundColor: '#9900e6',
-      inactiveBackgroundColor: '#b727ff',
+      activeBackgroundColor: '#aaaaaa',
+      inactiveBackgroundColor: '#bbbbbb',
       style: {
         width: '100%',
         height: 50
       }
+      
     }
   },
 );
@@ -38,6 +44,7 @@ export default createAppContainer(
   createSwitchNavigator(
     {
       MainNavigator,
+      cadastrarScreen,
       AuthStack,
     },
     {

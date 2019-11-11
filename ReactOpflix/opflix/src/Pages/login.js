@@ -44,6 +44,9 @@ class login extends Component {
       } catch (error) { }
     }
   };
+  _irparacadastrar = () => {
+    this.props.navigation.navigate('cadastrarScreen')
+  }
 
   render() {
     return (
@@ -67,6 +70,9 @@ class login extends Component {
           />
           <TouchableOpacity onPress={this._realizarLogin}>
             <Text style={styles.botao} >Logar</Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={this._irparacadastrar}>
+            <Text>Cadastrar</Text>
           </TouchableOpacity>
         </View>
       </View>
