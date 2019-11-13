@@ -1,47 +1,33 @@
 import React, { Component } from 'react';
 import { Text, View, Image, StyleSheet, FlatList } from 'react-native';
+import jwt from "jwt-decode";
 
 class home extends Component {
   constructor() {
     super();
     this.state = {
-      lista: []
+      nome: "",
+      email: "",
+      token: "",
     }
-
-
   }
-  _listar = async () => {
-    await fetch('http://192.168.3.186:5000/api/Lancamento',
-      {
-        method: 'GET',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json',
-        }
-      })
-      .then(response => response.json())
-      .then(response => { this.setState({ lista: response }) })
-      .catch(erro => console.warn(erro));
+  componentDidMount(){
+    this._retornarToken();
   }
-  componentDidMount() {
-    this._listar();
+  _retornarToken = async () => {
+    let tokenBuscadoDoStorage = await AsyncStorage.getItem('OpFlix-chave-autenticacao')
+    console.warn(tokenBuscadoDoStorage)
+    this.setState({ nome: jwt(tokenBuscadoDoStorage).NomeUsuario })
+    this.setState({ email: jwt(tokenBuscadoDoStorage).Email })
   }
   render() {
     return (
       <View>
-
-        <FlatList
-          data={this.state.lista}
-          keyExtractor={item => item.IdLancamento}
-          renderItem={({ item }) => (
-            <View>
-              <Text>{item.nomeLancamento}</Text>
-            </View>
-          )}
-
-        />
+        <Text>{this.state.nome}</Text>
+        <Text>{this.state.email}</Text>
       </View>
     );
+
   }
 }
 
