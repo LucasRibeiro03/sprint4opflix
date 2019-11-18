@@ -54,9 +54,11 @@ class login extends Component {
 
         <Image source={require('../imgs/fundo.jpg')} style={styles.img} />
         <View style={styles.arealogar}>
-          <Text style={styles.textologar}>
+          <View style={styles.Barra}></View>
+          <Text style={styles.nomeEstilizacao}>
             Opflix
         </Text>
+        
           <TextInput style={styles.inputgeral}
             placeholder="email"
             onChangeText={email => this.setState({ email })}
@@ -104,9 +106,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginBottom: 10
   },
-  textologar: {
-
-  },
+  
   arealogar: {
     alignItems: "center",
     flexDirection: "column",
@@ -118,8 +118,14 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     bottom: 0
+  },
+    nomeEstilizacao: {
+      fontSize: 90,
+      letterSpacing: 1,
+      color: "red",
+      textAlign:"center",
+      fontFamily: "BebasNeue-Regular"
   }
-
 });
 
 export default login;

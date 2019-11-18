@@ -11,6 +11,7 @@
     "jwt-decode": "^2.2.0",
     "react": "16.8.6",
     "react-native": "0.60.6",
+    "react-native-font": "^1.0.2",
     "react-native-gesture-handler": "^1.5.0",
     "react-native-reanimated": "^1.4.0",
     "react-navigation": "^4.0.10",
@@ -31,4 +32,5 @@
   "jest": {
     "preset": "react-native"
   }
+
 }
