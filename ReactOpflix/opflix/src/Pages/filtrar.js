@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, TextInput, FlatList, Image, StyleSheet,ScrollView, TouchableOpacity } from 'react-native';
+import { Text, View, TextInput, FlatList, Image, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
 
 class filtrar extends Component {
   constructor() {
@@ -43,71 +43,110 @@ class filtrar extends Component {
 
   _nulo = () => {
     return (
-      <Text>.</Text>
+      <Text style={styles.semtexto}>Nenhum Filme cadastrado</Text>
     )
   }
 
+
   render() {
     return (
-      <View>
+      <View style={styles.areafiltrar}>
 
         <ScrollView>
-        <Text>Filtrar</Text>
-        {this.state.categorias.map(item => {
-          return (
-            <View>
-
-              <Text style={styles.categoria}>{item.nomeCategoria}</Text>
-              <FlatList 
-              style={styles.flat}
-                horizontal={true}
-                data={this.state.lista.filter(y => y.categoria === item.idCategoria)}
-                keyExtractor={item => item.idLancamento}
-                ListEmptyComponent={this._nulo()}
-                renderItem={({ item }) => (
-                  <View>
-                    <Text style={styles.lancamentonome}>{item.nomeLancamento}</Text>
-                    <Text style={styles.sinopsefilme}>{item.sinopse}</Text>
-                    <Image source={{ uri: item.imagem }} style={styles.imagem} />
-                  </View>
-                )}
+          <View style={styles.Barra}></View>
+          <Text style={styles.nomeEstilizacao} >Filmes</Text>
+          <View style={styles.Barra}></View>
+          {this.state.lista.map(item => {
+            return (
+              <View>
                 
-                />
+                <Text style={styles.categoria}>{item.nomeLancamento}</Text>
+                
+                
+                <Image source={{ uri: item.imagem }} style={styles.imagem} />
+              </View>
+            )
+            // return (
+            //   <View>
+            //     <View style={styles.Barra}></View>
+            //     <Text style={styles.categoria}>{item.nomeCategoria}</Text>
+            //     <View style={styles.Barra}></View>
+            //     <FlatList
+            //       style={styles.flat}
+            //       horizontal={true}
+            //       data={this.state.lista.filter(y => y.categoria === item.idCategoria )}
+            //       keyExtractor={item => item.idLancamento}
+            //       ListEmptyComponent={this._nulo()}
+            //       renderItem={({ item }) => (
+            //         <View>
+            //           <Text style={styles.lancamentonome}>{item.nomeLancamento}</Text>
+
+            //           <Image source={{ uri: item.imagem }} style={styles.imagem} />
+            //         </View>
+            //       )}
+
+            //     />
 
 
-            </View>
-          )
-        })}
+            //   </View>
+            // )
 
-
+          })}
         </ScrollView>
       </View>
 
     );
   }
 }
-
 const styles = StyleSheet.create({
-  categoria:{
-    fontSize:30,
-    fontStyle:"italic",
-    marginTop: 10,
-    marginBottom: 10,
-    backgroundColor:"gray"
+  categoria: {
+    fontSize: 20,
+    letterSpacing: 1,
+    textAlign: "center",
+    color: "black",
+    fontFamily: "BebasNeue-Regular",
+    borderRadius: 40,
+    borderColor :"#E3E3E3",
+    borderWidth : 10,
+    marginHorizontal: 50,
 
   },
-  imagem:{
-    height:600,
-    width:350,
-    marginRight:10,
-    marginLeft:10
+  imagem: {
+    height: 300,
+    width: 200,
+    marginVertical:10,
+    borderRadius: 15,
+    borderWidth: 5,
+    borderColor: '#E3E3E3',
+    alignSelf:"center",
   },
-  sinopsefilme:{
+  sinopsefilme: {
     fontSize: 15,
-    textAlign:"center",
-
+    textAlign: "center",
+  },
+  nomeEstilizacao: {
+    fontSize: 40,
+    letterSpacing: 5,
+    textAlign: "center",
+    color: "red",
+    fontFamily: "BebasNeue-Regular"
+  }, Barra: {
+    backgroundColor: "#E3E3E3",
+    height: 10,
+    width: "100 %"
+  },
+  areafiltrar: {
+    alignItems: "center",
+    flexDirection: "column",
+    paddingTop: 20
+  },
+  semtexto: {
+    fontSize: 20,
+    letterSpacing: 1,
+    textAlign: "center",
+    color: "#E3E3E3",
+    fontFamily: "BebasNeue-Regular"
   }
-
 });
 
 export default filtrar;

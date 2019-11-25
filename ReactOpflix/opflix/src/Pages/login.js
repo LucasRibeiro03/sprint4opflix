@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, TextInput, TouchableOpacity, Image, StyleSheet,AsyncStorage, FlatList } from 'react-native';
+import { Text, View, TextInput, TouchableOpacity, Image, StyleSheet, AsyncStorage, FlatList } from 'react-native';
 
 
 class login extends Component {
@@ -39,7 +39,7 @@ class login extends Component {
     if (tokenAReceber != null) {
       try {
         await AsyncStorage.setItem('@opflix:token', tokenAReceber);
-        
+
         this.props.navigation.navigate('MainNavigator')
       } catch (error) { }
     }
@@ -58,7 +58,7 @@ class login extends Component {
           <Text style={styles.nomeEstilizacao}>
             Opflix
         </Text>
-        
+
           <TextInput style={styles.inputgeral}
             placeholder="email"
             onChangeText={email => this.setState({ email })}
@@ -74,7 +74,7 @@ class login extends Component {
             <Text style={styles.botao} >Logar</Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={this._irparacadastrar}>
-            <Text>Cadastrar</Text>
+            <Text style={styles.cadastrarEstilizacao} >Cadastrar</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -87,26 +87,30 @@ const styles = StyleSheet.create({
     paddingLeft: 70,
     paddingRight: 70,
     borderRadius: 30,
-    borderColor: "grey",
+    borderColor: "#E3E3E3",
     borderWidth: 1,
     marginTop: 10,
     marginBottom: 10
 
   },
   botao: {
-    backgroundColor: "grey",
+    backgroundColor: "#E3E3E3",
     paddingLeft: 70,
     paddingRight: 70,
     paddingTop: 20,
     paddingBottom: 10,
     borderRadius: 30,
-    borderColor: "grey",
+    borderColor: "#E3E3E3",
     borderWidth: 1,
-
+    fontSize: 20,
+    letterSpacing: 1,
+    alignItems: "center",
+    color: "black",
+    fontFamily: "BebasNeue-Regular",
     marginTop: 10,
     marginBottom: 10
   },
-  
+
   arealogar: {
     alignItems: "center",
     flexDirection: "column",
@@ -117,14 +121,22 @@ const styles = StyleSheet.create({
     top: 0,
     left: 0,
     right: 0,
-    bottom: 0
+    bottom: 0,
+    width:'100%'
   },
-    nomeEstilizacao: {
-      fontSize: 90,
-      letterSpacing: 1,
-      color: "red",
-      textAlign:"center",
-      fontFamily: "BebasNeue-Regular"
+  nomeEstilizacao: {
+    fontSize: 90,
+    letterSpacing: 1,
+    color: "red",
+    textAlign: "center",
+    fontFamily: "BebasNeue-Regular"
+  },
+  cadastrarEstilizacao: {
+    fontSize: 20,
+    letterSpacing: 1,
+    alignItems: "center",
+    color: "black",
+    fontFamily: "BebasNeue-Regular"
   }
 });
 

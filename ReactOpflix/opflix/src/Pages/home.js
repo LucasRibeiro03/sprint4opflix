@@ -35,7 +35,7 @@ class home extends Component {
         <View style={styles.Barra}></View>
         <Text>{this.state.email}</Text>
         <TouchableOpacity onPress={this._Deslogar}>
-          <Text >Deslogar</Text>
+          <Text style={styles.botao}>Deslogar</Text>
         </TouchableOpacity>
 
 
@@ -51,9 +51,30 @@ const styles = StyleSheet.create({
     color: "red",
     fontFamily: "BebasNeue-Regular"
   },Barra:{
-    backgroundColor:"grey",
+    backgroundColor:"#E3E3E3",
     height:10 ,
     width:"100 %"
-  }
+  },
+  botao: {
+    backgroundColor: "#E3E3E3",
+    paddingLeft: 70,
+    paddingRight: 70,
+    marginLeft:40,
+    marginRight:40,
+    paddingTop: 20,
+    paddingBottom: 10,
+    borderRadius: 30,
+    borderColor: "#E3E3E3",
+    borderWidth: 1,
+    textAlign: "center",
+    fontSize: 20,
+    letterSpacing: 1,
+    alignItems: "center",
+    color: "black",
+    fontFamily: "BebasNeue-Regular",
+    marginTop: 10,
+    marginBottom: 10
+}
 });
 export default home;
+

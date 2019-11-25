@@ -13,26 +13,30 @@ const AuthStack = createStackNavigator({
 
 const MainNavigator = createBottomTabNavigator(
   {
-    Main: {
+    Perfil: {
       screen: MainScreen,
     },
-    Profile: {
+    Filtrar: {
       screen: filtrarScreen,
     },
   },
   {
-    initialRouteName: 'Main',
+    initialRouteName: 'Perfil',
     tabBarOptions: {
+      labelStyle: {
+        fontSize: 17,
+        fontFamily: 'BebasNeue-Regular'
+      },
       showLabel: true,
       style:{
-        backgroundColor: '#000000'
+        backgroundColor: '#000000',
       },
       showIcon: true,
-      activeBackgroundColor: '#aaaaaa',
-      inactiveBackgroundColor: '#bbbbbb',
+      activeBackgroundColor: '#BF0000',
+      inactiveBackgroundColor: '#870000',
       style: {
         width: '100%',
-        height: 50
+        height: 50,
       }
       
     }
