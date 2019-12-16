@@ -26,6 +26,7 @@ namespace OpFlixFinal.Controllers
             usuarioRepository = new UsuarioRepository();
         }
 
+        [HttpPost]
         public IActionResult Login(LoginViewModel login)
         {
             Usuarios usuarioBuscado = usuarioRepository.BuscarEmailSenha(login);
